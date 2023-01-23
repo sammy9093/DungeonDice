@@ -28,19 +28,15 @@ struct ContentView: View {
     @State private var buttonsLeftOver = 0 //Number of buttons left over first row
     let horizontalPadding: CGFloat = 16
     let spacing: CGFloat = 0 //between buttons
-    let buttonWidth: CGFloat = 130
+    let buttonWidth: CGFloat = 102
     var body: some View {
         GeometryReader { geo in
             VStack {
-                TitleView()
+                titleView
                 
                 Spacer()
                 
-                Text(resultMessage)
-                    .font(.largeTitle)
-                    .fontWeight(.medium)
-                    .multilineTextAlignment(.center)
-                    .frame(height: 150)
+                resultMessageView
                 
                 Spacer()
                 
@@ -53,7 +49,7 @@ struct ContentView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(.red)
-
+                    
                 }
                 HStack {
                     ForEach(Dice.allCases.suffix(buttonsLeftOver), id: \.self) { dice in
@@ -68,7 +64,7 @@ struct ContentView: View {
                 }
                 
                 
-                }
+            }
             .padding()
             .onChange(of: geo.size.width, perform: { newValue in
                 arrangeGridItems(deviceWidth: geo.size.width) //Type geo is being passed variable geo
@@ -93,10 +89,25 @@ struct ContentView: View {
     }
 }
 
+extension ContentView {
+    private var titleView: some View {
+        Text("Dungeon Dice")
+            .font(.largeTitle)
+            .fontWeight(.black)
+            .foregroundColor(.red)
+    }
+    
+    private var resultMessageView: some View {
+        Text(resultMessage)
+            .font(.largeTitle)
+            .fontWeight(.medium)
+            .multilineTextAlignment(.center)
+            .frame(height: 150)
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
-
