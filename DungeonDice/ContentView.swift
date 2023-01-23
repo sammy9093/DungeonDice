@@ -3,7 +3,7 @@
 //  DungeonDice
 //
 //  Created by Sammy on 1/18/23.
-//
+//DROP LAST is a method of an enum
 
 import SwiftUI
 
@@ -32,10 +32,7 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
-                Text("Dungeon Dice")
-                    .font(.largeTitle)
-                    .fontWeight(.black)
-                    .foregroundColor(.red)
+                TitleView()
                 
                 Spacer()
                 
@@ -74,17 +71,17 @@ struct ContentView: View {
                 }
             .padding()
             .onChange(of: geo.size.width, perform: { newValue in
-                arrangeGridItems(geo: geo) //Type geo is being passed variable geo
+                arrangeGridItems(deviceWidth: geo.size.width) //Type geo is being passed variable geo
             })
             .onAppear {
-                arrangeGridItems(geo: geo)
+                arrangeGridItems(deviceWidth: geo.size.width)
             }
         }
         
     }
     
-    func arrangeGridItems(geo: GeometryProxy) {
-        var screenWidth = geo.size.width - horizontalPadding*2 // paddin on both sides
+    func arrangeGridItems(deviceWidth: CGFloat) {
+        var screenWidth = deviceWidth - horizontalPadding*2 // paddin on both sides
         if Dice.allCases.count > 1 {
             screenWidth += spacing
         }
@@ -101,3 +98,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
