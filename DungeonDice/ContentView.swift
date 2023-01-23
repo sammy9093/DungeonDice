@@ -74,29 +74,25 @@ struct ContentView: View {
                 }
             .padding()
             .onChange(of: geo.size.width, perform: { newValue in
-                var screenWidth = geo.size.width - horizontalPadding*2 // paddin on both sides
-                if Dice.allCases.count > 1 {
-                    screenWidth += spacing
-                }
-                
-                //calculate numOfButtonsPerRow as an Int //Could drop decimal
-                let numberOfButtonsPerRow = Int(screenWidth) / Int(buttonWidth + spacing)
-                buttonsLeftOver = Dice.allCases.count % numberOfButtonsPerRow
-                print("numberOfButtonsPerRow = \(numberOfButtonsPerRow) buttonsLeftOver = \(buttonsLeftOver)")
+                arrangeGridItems(geo: geo) //Type geo is being passed variable geo
             })
             .onAppear {
-                var screenWidth = geo.size.width - horizontalPadding*2 // paddin on both sides
-                if Dice.allCases.count > 1 {
-                    screenWidth += spacing
-                }
-                
-                //calculate numOfButtonsPerRow as an Int //Could drop decimal
-                let numberOfButtonsPerRow = Int(screenWidth) / Int(buttonWidth + spacing)
-                buttonsLeftOver = Dice.allCases.count % numberOfButtonsPerRow
-                print("numberOfButtonsPerRow = \(numberOfButtonsPerRow) buttonsLeftOver = \(buttonsLeftOver)")
+                arrangeGridItems(geo: geo)
             }
         }
         
+    }
+    
+    func arrangeGridItems(geo: GeometryProxy) {
+        var screenWidth = geo.size.width - horizontalPadding*2 // paddin on both sides
+        if Dice.allCases.count > 1 {
+            screenWidth += spacing
+        }
+        
+        //calculate numOfButtonsPerRow as an Int //Could drop decimal
+        let numberOfButtonsPerRow = Int(screenWidth) / Int(buttonWidth + spacing)
+        buttonsLeftOver = Dice.allCases.count % numberOfButtonsPerRow
+        print("numberOfButtonsPerRow = \(numberOfButtonsPerRow) buttonsLeftOver = \(buttonsLeftOver)")
     }
 }
 
