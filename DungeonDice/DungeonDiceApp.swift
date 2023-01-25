@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct DungeonDiceApp: App {
+    @StateObject var toDosVM = ToDosViewModel() //Use the class
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ToDoListView()
+                .environmentObject(toDosVM)  //First view of windows group, it's the (P) in autocomplete
+            //ContentView()
         }
     }
 }

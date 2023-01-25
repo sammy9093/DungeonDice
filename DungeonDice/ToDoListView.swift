@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct ToDoListView: View {
-   @State private var sheetIsPresented = false
-    
-    var toDos = ["Learn Switft", "Build Apss", "World Piece", "Vacation"]
+    @State private var sheetIsPresented = false
+    @EnvironmentObject var toDosVM: ToDosViewModel
+//    var toDos = ["Learn Switft", "Build Apss", "World Piece", "Vacation"]
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(toDos, id: \.self) { toDo in
+                ForEach(toDosVM.toDos) { toDo in //\.self was bad, identifiable protocol. Every iteteration of the toDos arrau thats insidethetoDosVM object.
                     //                    Text(toDo)
                     NavigationLink {
-                        DetailView(passedValue: toDo)
+                        DetailView(toDo: toDo) // State struct value on our toDo.
+                        
+//                        DetailView(passedValue: toDo) // not applicapile, not accessing with past values. Rather we use a state wide environment pointer.
                     } label: {
-                        Text(toDo)
+                        Text(toDo.item) // added .item due to 
                     }
                     .font(.title2)
                 }
@@ -36,25 +38,30 @@ struct ToDoListView: View {
                         Image(systemName: "plus")
                     }
                     //                    NavigationLink {
-//                        DetailView(passedValue: "")
-//                    } label: {
-//                        Image(systemName: "plus")
-//                    }
+                    //                        DetailView(passedValue: "")
+                    //                    } label: {
+                    //                        Image(systemName: "plus")
+                    //                    }
                 }
                 //.padding()
             }
-//MARK: This is to present the view in a pulled up 'NewItem' action
-//            .sheet(isPresented: $sheetIsPresented) {
-//                DetailView(passedValue: "")
-//            }
-            .fullScreenCover(isPresented: $sheetIsPresented) {
-                DetailView(passedValue: "")
+            //MARK: This is to present the view in a pulled up 'NewItem' action
+            .sheet(isPresented: $sheetIsPresented) {
+                //                DetailView(passedValue: "")
+                //            }
+                //            .fullScreenCover(isPresented: $sheetIsPresented) {
+                NavigationStack {
+                    //DetailView(passedValue: "")
+                    DetailView(toDo: ToDo()) //New value needed. Needed to be the function of.
+                    //Loads ToDo state variable, with a new toDO with all default values
+                }
             }
         }
     }
     struct ToDoListView_Previews: PreviewProvider {
         static var previews: some View {
             ToDoListView()
+                .environmentObject(ToDosViewModel()) //Added passthrough function
         }
     }
 }

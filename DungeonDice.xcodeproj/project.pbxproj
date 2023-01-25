@@ -10,6 +10,9 @@
 		A5467ACE297E1FF2005F0AA2 /* ButtonLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5467ACD297E1FF2005F0AA2 /* ButtonLayout.swift */; };
 		A5467AD0297E3805005F0AA2 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5467ACF297E3805005F0AA2 /* ToDoListView.swift */; };
 		A5467AD2297E3A45005F0AA2 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5467AD1297E3A45005F0AA2 /* DetailView.swift */; };
+		A550105A2980AAE300BB1B84 /* StructClassTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55010592980AAE300BB1B84 /* StructClassTestView.swift */; };
+		A550105C2980B02F00BB1B84 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550105B2980B02F00BB1B84 /* ToDo.swift */; };
+		A550105E2980B18400BB1B84 /* ToDosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A550105D2980B18400BB1B84 /* ToDosViewModel.swift */; };
 		A59E521829790E90001FB6FB /* DungeonDiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59E521729790E90001FB6FB /* DungeonDiceApp.swift */; };
 		A59E521A29790E90001FB6FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59E521929790E90001FB6FB /* ContentView.swift */; };
 		A59E521C29790E9B001FB6FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59E521B29790E9B001FB6FB /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 		A5467ACD297E1FF2005F0AA2 /* ButtonLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLayout.swift; sourceTree = "<group>"; };
 		A5467ACF297E3805005F0AA2 /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
 		A5467AD1297E3A45005F0AA2 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A55010592980AAE300BB1B84 /* StructClassTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructClassTestView.swift; sourceTree = "<group>"; };
+		A550105B2980B02F00BB1B84 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		A550105D2980B18400BB1B84 /* ToDosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDosViewModel.swift; sourceTree = "<group>"; };
 		A59E521429790E90001FB6FB /* DungeonDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DungeonDice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59E521729790E90001FB6FB /* DungeonDiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DungeonDiceApp.swift; sourceTree = "<group>"; };
 		A59E521929790E90001FB6FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,10 +64,13 @@
 			isa = PBXGroup;
 			children = (
 				A59E521729790E90001FB6FB /* DungeonDiceApp.swift */,
+				A550105B2980B02F00BB1B84 /* ToDo.swift */,
+				A550105D2980B18400BB1B84 /* ToDosViewModel.swift */,
 				A59E521929790E90001FB6FB /* ContentView.swift */,
 				A5467ACD297E1FF2005F0AA2 /* ButtonLayout.swift */,
 				A5467ACF297E3805005F0AA2 /* ToDoListView.swift */,
 				A5467AD1297E3A45005F0AA2 /* DetailView.swift */,
+				A55010592980AAE300BB1B84 /* StructClassTestView.swift */,
 				A59E521B29790E9B001FB6FB /* Assets.xcassets */,
 				A59E521D29790E9B001FB6FB /* Preview Content */,
 			);
@@ -147,9 +156,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5467ACE297E1FF2005F0AA2 /* ButtonLayout.swift in Sources */,
+				A550105C2980B02F00BB1B84 /* ToDo.swift in Sources */,
 				A59E521A29790E90001FB6FB /* ContentView.swift in Sources */,
 				A5467AD0297E3805005F0AA2 /* ToDoListView.swift in Sources */,
+				A550105E2980B18400BB1B84 /* ToDosViewModel.swift in Sources */,
 				A5467AD2297E3A45005F0AA2 /* DetailView.swift in Sources */,
+				A550105A2980AAE300BB1B84 /* StructClassTestView.swift in Sources */,
 				A59E521829790E90001FB6FB /* DungeonDiceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
