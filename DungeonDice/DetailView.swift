@@ -11,6 +11,7 @@ struct DetailView: View {
     @Environment(\.dismiss) private var dismiss //\/dismiss is the cool thing but the var is adjustable
     @EnvironmentObject var toDosVM: ToDosViewModel //don't litterally initilize class
     @State var toDo: ToDo //Struct on this screen, not initilized due to where it comes from (last page)
+    var newToDo = false
     
     var body: some View {
             List {
@@ -46,7 +47,11 @@ struct DetailView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        //TOD: remeber parent
+                        // if new, append to toDoVM.todos else update the toDo that was passed in the from the List.
+                        if newToDo {
+                            toDosVM.toDos.append(toDo)
+                            dismiss() // Need for escape
+                        }
                     }
                 }
             }

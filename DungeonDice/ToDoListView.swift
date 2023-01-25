@@ -52,7 +52,9 @@ struct ToDoListView: View {
                 //            .fullScreenCover(isPresented: $sheetIsPresented) {
                 NavigationStack {
                     //DetailView(passedValue: "")
-                    DetailView(toDo: ToDo()) //New value needed. Needed to be the function of.
+                    DetailView(toDo: ToDo(), newToDo: true)
+                    //newToDo changes state  in DetailView triggering an append.
+                    /////New value needed. Needed to be the function of.
                     //Loads ToDo state variable, with a new toDO with all default values
                 }
             }
