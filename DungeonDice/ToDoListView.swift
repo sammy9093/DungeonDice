@@ -26,11 +26,27 @@ struct ToDoListView: View {
                     }
                     .font(.title2)
                 }
+                // Shorthand calls to .onDelete and onMove here
+                .onDelete(perform: toDosVM.delete) // accepeted shorthand
+                .onMove(perform: toDosVM.move)
+                // toDosVM is a method and usually .anything is for properties, this is a function call.
+                // This is allowed since the closures pass in the same values that are passed into the delete and move functions.
+                // Traditional calls below
+//                .onDelete { indexSet in
+//                    toDosVM.delete(indexSet: indexSet) // Refer to 'delete' func in ToDosViewModel.
+//                }
+//                .onMove(perform: { fromOffsets, toOffset in
+//                    toDosVM.move(fromOffsets: fromOffsets, toOffset: toOffset)
+//                })
+                // Indices in a collection, detecting a swipe value.
             }
             .navigationTitle("To Do List")
             .navigationBarTitleDisplayMode(.automatic)
             .listStyle(.plain)
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         sheetIsPresented.toggle()
